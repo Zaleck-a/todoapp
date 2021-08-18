@@ -1,3 +1,4 @@
+import { appReducers } from './app.reducer';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { environment } from './../environments/environment';
@@ -6,7 +7,6 @@ import { ReactiveFormsModule } from "@angular/forms";
 
 // Ngrx
 import { StoreModule } from '@ngrx/store';
-import { todoReducer } from './todos/todo.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 
@@ -24,7 +24,7 @@ import { FooterComponent } from './footer/footer.component';
     BrowserModule,
     ReactiveFormsModule,
     TodoModule,
-    StoreModule.forRoot({ todos: todoReducer }),
+    StoreModule.forRoot(appReducers),
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
       logOnly: environment.production, // Restrict extension to log-only mode
