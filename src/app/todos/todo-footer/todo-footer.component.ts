@@ -1,5 +1,7 @@
+import { borrarCompletados } from './../todo.actions';
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { borrar } from '../todo.actions';
 import { AppState } from './../../app.reducer';
 
 import * as actions from './../../filtro/filtro.actions';
@@ -41,6 +43,10 @@ export class TodoFooterComponent implements OnInit {
 
     this.store.dispatch(actions.setFiltro({filtro: filtro}))
 
+  }
+
+  limpiar(){
+    this.store.dispatch(borrarCompletados())
   }
 
 }
